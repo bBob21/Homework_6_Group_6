@@ -1,19 +1,21 @@
 #Exercise 4
 
-list = [1,2,3,4,5]
+given_list = [5,4,7,3,4,5,4]
 
-def remove_all_after(array,number):
-    #pre define variable
-    index = 0
+def chunking_by(array,number):
+    #predefine chunked list
+    chunks = []
 
-    #check each elements in the array
-    for x in array:
-        index += 1
-        
-        if x == number:
-            break
+    #for every number between 0 to the length of the list
+    #at intervals of the given number
+    #example: range(0,10,2) = 0,2,4,6,8,10
+    #example: range(0,15,4) = 0,4,8,12
+    for a in range(0,len(array),number):
 
-    #return items until the number
-    return array[0:index]
+        #add sections of the original list into the new chunks list
+        #to create a 2d array
+        chunks.append(array[a:a+number])
 
-print(remove_all_after(list,3))
+    return chunks
+
+print(list(chunking_by(given_list,3)))
